@@ -1,4 +1,3 @@
-//import 'dart:convert';
 import 'dart:math';
 
 main(){
@@ -10,9 +9,13 @@ main(){
   crete_random_array();
   draw_triangle(20);
   reverse_string('hello , world!');
+  repeating_first_letter("mamamia");
+  string_change("comer");
+  duplicate_in_arrays();
+  divisors(400);
+  string_to_char_array("BigChungus");
  */
-  repeating_first_letter("rrrrrrrrsafjhrrrhgarahgrajgrahrjrhgjrrhjrhrrrrhrgjhrjhrgajrajhrjhrajhrrrrrhjrarjhgrjhrrhrr");
-
+  char_array_to_string();
 }
 
 //Problem 1 : Place all even numbers at the begining of the array
@@ -124,3 +127,62 @@ for (var i = 0; i < str.length; i++) {
 }
 print("The letter $char apperas $cont times ");
 }
+
+//Problem 8 : 
+string_change(String str){
+  var vocals = ['a', 'e', 'i' , 'o', 'u'];
+  var end = str[0];
+  if(vocals.contains(end)){
+    end += 'y';
+  }
+  else{
+    end += "oy";
+  }
+  str = str.substring(1);
+  str = str + end;
+  print(str);
+
+}
+
+//Problem 9 : duplicate number in arrays 
+duplicate_in_arrays(){
+  var arr = [1,2,3,45,6,53,2];
+  var arr2 = [4,31,24,2,1,23,53,6,45,99,23];
+  var out = new List();
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr2.length; j++) {
+      if(arr[i] == arr2[j] && !out.contains(arr[i])){
+        out.add(arr[i]);
+      }
+
+    }
+  }
+  print("Array 1 $arr" );
+  print("Array 2 $arr2" );
+  print("Repeating  $out" );
+}
+
+//Problema 10 : Print Divisors
+divisors(n){
+  for (var i = 1; i < n; i++) {if(n%i==0){print(i);}}
+}
+
+//Problem 11 : converts string to char array
+string_to_char_array(str){
+  var charry = new List();
+  for (var i = 0; i < str.length; i++) {
+    charry.add(str[i]);
+  }
+  print(charry);
+}
+
+//Problem 12 : converts char array to string
+char_array_to_string(){
+var charry = ['B','i','g','C','h','u','n','g','u','s'];
+var str = '';
+for (var i = 0; i < charry.length; i++) {
+  str += charry[i];
+}
+print(str);
+}
+
