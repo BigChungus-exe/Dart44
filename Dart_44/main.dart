@@ -1,21 +1,80 @@
 import 'dart:math';
+main() async {
 
-main(){
-
-  
-  /*evens_first();
-  distance_to_neighbor();
-  average_sum();
-  crete_random_array();
-  draw_triangle(20);
-  reverse_string('hello , world!');
-  repeating_first_letter("mamamia");
-  string_change("comer");
-  duplicate_in_arrays();
-  divisors(400);
-  string_to_char_array("BigChungus");
- */
-  char_array_to_string();
+  switch (18) {
+    case 1:
+    evens_first();
+    break;
+    case 2:
+    distance_to_neighbor();
+    break;
+    case 3:
+    average_sum();
+    break;
+    case 4:
+    crete_random_array();
+    break;
+    case 5:
+    draw_triangle(4);
+    break;
+    case 6:
+    reverse_string('Hello , World !');
+    break;
+    case 7:
+    repeating_first_letter('mamamia');
+    break;
+    case 8:
+      string_change("comer");
+    break;
+    case 9:
+      duplicate_in_arrays();
+    break;
+    case 10:
+      divisors(400);
+    break;
+    case 11:
+      string_to_char_array("HolaMundo");
+    break;
+    case 12:
+    char_array_to_string();
+    break;
+    case 13:
+    sum_of_powers();
+    break;
+    case 14:
+    div_by_digits(244422442);
+    break;
+    case 15:
+    daditos();
+    break;
+    case 16:
+    supersticious([1,2,13]);
+    break;
+    case 17:
+    contains_ss('mississipisss');
+    break;
+    case 18:
+    divisible_by_3_5();
+    break;
+    case 19:
+    daditos();
+    break;
+    case 20:
+    daditos();
+    break;
+    case 21:
+    daditos();
+    break;
+    case 22:
+    daditos();
+    break;
+    case 23:
+    daditos();
+    break;
+    case 24:
+    daditos();
+    break;
+  }
 }
 
 //Problem 1 : Place all even numbers at the begining of the array
@@ -178,11 +237,93 @@ string_to_char_array(str){
 
 //Problem 12 : converts char array to string
 char_array_to_string(){
-var charry = ['B','i','g','C','h','u','n','g','u','s'];
-var str = '';
-for (var i = 0; i < charry.length; i++) {
-  str += charry[i];
+  var charry = ['B','i','g','C','h','u','n','g','u','s'];
+  var str = '';
+  for (var i = 0; i < charry.length; i++) {
+    str += charry[i];
+  }
+  print(str);
 }
-print(str);
+
+//Problema 13 : Return the sum of all the numbers that are powers of 2 between 0 and 2050
+sum_of_powers(){
+  var sum = 0;
+  for (var i = 0; i < 2050; i++) {
+    if(pow(2,i) > 2050){
+      break;
+    }
+    else{
+      sum += pow(2,i);
+    }
+    
+  }
+  print(sum);
 }
+
+
+// Problema 14 : divisble by digits 
+div_by_digits(int n){
+  var str = n.toString();
+  bool t = true;
+  for (var i = 0; i < str.length; i++) {
+    if(!(n% int.parse(str[i]) == 0)){
+      t = false;
+      break;
+    }
+  }
+  print(t);
+}
+
+//Problem 15 : Simulate throwing 5 die  a millio times 
+daditos(){
+  var dice =0;
+  var rng = new Random();
+  List<int> res = new List.filled(26, 0);
+  for (var i = 0; i < 1000000; i++) {
+    for (var i = 0; i < 5; i++) {
+       dice += rng.nextInt(6) +1;
+    }
+    res[dice -5] += 1;
+    dice = 0;
+  }
+  print(res);
+}
+
+//Problem 16 
+supersticious(List<int> arr) {
+  var sum =0;
+  for (var i = 0; i < 3; i++) {
+     if(!(arr[i] == 13) ){
+       sum += arr[i];
+     }
+     else{
+       break;
+     }
+  }
+  print(sum);
+}
+
+//Problema 17 
+contains_ss(String word){
+  int cont = 0;
+  for (var i = 0; i < word.length -1; i++) {
+    if(word[i] + word[i+1] == 'ss'){
+      cont++;
+    }
+    
+  }
+  print(cont);
+}
+
+//Problema 18
+divisible_by_3_5(){
+  int sum =0;
+  for (var i = 1; i < 1000; i++) {
+    if(i%3==0 || i%5==0){
+      sum += i;
+    }
+  }
+  print(sum);
+}
+
 
