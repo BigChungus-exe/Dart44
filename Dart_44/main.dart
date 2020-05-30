@@ -1,7 +1,7 @@
 import 'dart:math';
 main() async {
 
-  switch (18) {
+  switch (27) {
     case 1:
     evens_first();
     break;
@@ -57,22 +57,47 @@ main() async {
     divisible_by_3_5();
     break;
     case 19:
-    daditos();
+    fibo_20();
     break;
     case 20:
-    daditos();
+    fact_sum(15);
     break;
     case 21:
-    daditos();
+    sum_div(5);
     break;
     case 22:
-    daditos();
+    squarearray([2,4,6,8,10,10,3,1,0]);
     break;
     case 23:
-    daditos();
+    exparray([2,4,6,8,10,10,3,1,0]);
     break;
     case 24:
-    daditos();
+    sum_after_5([1,2,3,4,5,5,10,20,30]);
+    break;
+    case 25:
+    repeatingarr([1,2,3,4,111,5,10,20,30]);
+    break;
+    case 26:
+    sqrt_sum_arr([4,4,4,4,4,4,4,4,4,4,4]);
+    break;
+    case 27:
+    multiples_of_n(7, [7,14,21,28,35,12,9,77,3]);
+    break;
+    case 28:
+    break;
+    case 29:
+    break;
+    case 30:
+    break;
+    case 31:
+    break;
+    case 32:
+    break;
+    case 33:
+    break;
+    case 34:
+    break;
+    case 35:
     break;
   }
 }
@@ -326,4 +351,102 @@ divisible_by_3_5(){
   print(sum);
 }
 
+//Problem 19
+fibo_20(){
+  int prev =1;
+  int prevprev =0;
+  int current;
+  for (var cont = 0; cont < 20;) {
+    current = prev + prevprev;
+    prevprev = prev;
+    prev = current;
+    if(current%2 ==0){
+      print(current);
+      cont++;
+    }
+  }
+}
 
+//Problem 20
+fact_sum(var n){
+  int fact=1;
+  for (var i = 1; i <= n; i++) {
+    fact *= i;
+  }
+  print(fact);
+
+  String digits = fact.toString();
+  int sum=0;
+  for (var i = 0; i < digits.length; i++) {
+    sum +=  int.parse(digits[i]);
+  }
+  print("SUM : $sum");
+}
+
+//Problem 21
+sum_div(var n){
+  int sum=0;
+  for (var i = 1; i <= n; i++) {
+    if(n%i ==0){
+      sum += i;
+    }
+  }
+  print(sum);
+}
+
+//Problem 22
+squarearray(List<int> arr){
+for (var i = 0; i < arr.length; i++) {arr[i] *= arr[i];}
+print(arr);
+}
+
+//Problem 23
+exparray(List<int> arr){
+for (var i = 0; i < arr.length; i++) {arr[i] = pow(arr[i], i);}
+print(arr);
+}
+
+//Problem 24
+sum_after_5(List<int> arr){
+  bool check = false;
+  int sum=0;
+for (var i = 0; i < arr.length; i++) {
+   if(check){
+    sum += arr[i];
+  }
+  if(arr[i] == 5){
+    check = true;
+  }
+ 
+  }
+print(sum);
+}
+
+//Problem 25
+repeatingarr(List<int> arr){
+  arr.sort();
+  bool b = false;
+  for (var i = 0; i < arr.length -1; i++) {
+    if(arr[i]==arr[i+1]){
+      b = true;
+      break;
+    }
+  }
+  print(b);
+}
+
+//Problema 26
+sqrt_sum_arr(List<int> arr){
+  double sum =0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  print(sqrt(sum/arr.length));
+}
+
+//Problema 27
+multiples_of_n(var n , List<int> arr){
+  int cont =0;
+  for (var i = 0; i < arr.length; i++) {if(arr[i]%n == 0){cont++;}}
+  print(cont);
+}
